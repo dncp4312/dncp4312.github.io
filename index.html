@@ -1,1 +1,221 @@
-Hello, Mr. Blue Sky.
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>Watchers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="To Do"><h1 id="To Do" class="header"><a href="#To Do">To Do</a></h1></div>
+<ol>
+<li>
+Review <a href="https://bitbucket.org/Ekk5tein/hta_be/pull-requests/229">Data Consistency module prototype</a> from Deepak.
+
+<ul>
+<li>
+Processing of Jobs and Sending of mails is not completely tested to be working.
+
+<li>
+Deepak is trying to replace Active Jobs with Sidekiq for processing jobs.
+
+<li>
+It'd be ideal if you could review this together with Deepak.
+
+</ul>
+<li>
+Provide inputs on how <a href="https://bitbucket.org/Ekk5tein/hta_be/pull-requests/282">Navneet's solution</a> addressing the polymorphic address issue could be further developed.
+
+<ul>
+<li>
+It'd be ideal if you could review this together with Navneet.
+
+</ul>
+<li>
+Merge <a href="https://bitbucket.org/Ekk5tein/hta_be/pull-requests/286">PR that prepares backend for local keycloak server.</a>
+
+<li>
+Merge <a href="https://gitlab.com/pfs_admin/hta_bundle/-/merge_requests/7">keycloak docker setup PR</a> to hta_bundle.
+
+<li>
+Merge <a href="https://gitlab.com/pfs_admin/hta_bundle/-/merge_requests/9">PR to hta_bundle</a> that enables gitlab frontend service.
+
+<li>
+Merge <a href="https://gitlab.com/pfs_admin/hta_fe3/-/merge_requests/17">PR to gitlab fe repo</a>, that updates frontend to work in local dev env.
+
+<ul>
+<li>
+Once this is merged, set <code>VITE_KEYCLOAK_URL=https://identity.pflegehilfe-senioren.de/auth</code> environment variable to production docker-compose.yml wherever necessary.
+
+</ul>
+<li>
+Merge <a href="https://gitlab.com/pfs_admin/hta_bundle/-/merge_requests/10">PR to hta_bundle</a> that renames bitbucket and gitlab fe submodules to frontend_v2 and frontend respectively.
+
+<ul>
+<li>
+Will have to edit <code>.git/config</code> manually.
+
+</ul>
+<li>
+Merge <a href="https://bitbucket.org/Ekk5tein/hta_fe/pull-requests/5">PR to bitbucket fe repo</a>, that enables old frontend to work in local dev env.
+
+<ul>
+<li>
+Once this is merged, set <code>VUE_APP_KEYCLOAK_URL=https://identity.pflegehilfe-senioren.de/auth</code> environment variable to production docker-compose.yml wherever necessary.
+
+</ul>
+<li>
+Merge <a href="https://gitlab.com/pfs_admin/hta_bundle/-/merge_requests/11">PR to hta_bundle repo</a>, that enables old frontend sevice.
+
+<li>
+Review, merge and run <a href="https://bitbucket.org/Ekk5tein/hta_be/pull-requests/300">rake task</a> to update existing households with address.
+
+<li>
+Merge <a href="https://bitbucket.org/Ekk5tein/hta_be/pull-requests/274">Deepak's PR</a> that cascades provision updates.
+
+<ul>
+<li>
+This was already reviewed once, and following two changes were requested and implemented :
+
+<ul>
+<li>
+update the cascade to update Segments with start in the current month
+
+<li>
+update the cascade to update CareStays with bill_start in the current month
+
+</ul>
+</ul>
+<li>
+Review <a href="https://bitbucket.org/Ekk5tein/hta_be/pull-requests/285">Deepak's PR</a> with specs for provision update cascade,
+
+<ul>
+<li>
+Will merge this, once the update code from previous PR is merged.
+
+</ul>
+</ol>
+
+<hr />
+
+<div id="Current Updates"><h1 id="Current Updates" class="header"><a href="#Current Updates">Current Updates</a></h1></div>
+<ol>
+<li>
+Merged <a href="https://bitbucket.org/Ekk5tein/hta_be/pull-requests/271">provision inheritance refactor PR</a> to Development.
+
+<li>
+Merged <a href="https://bitbucket.org/Ekk5tein/hta_be/pull-requests/279">determination of transfer provision based on cutoff date</a> to Development.
+
+<li>
+Deepak is writing specs for <a href="https://bitbucket.org/Ekk5tein/hta_be/pull-requests/274">cascading mechanism for updates on provision fields.</a>
+
+<li>
+Merged <a href="https://bitbucket.org/Ekk5tein/hta_be/pull-requests/298">PR to development and staging</a> that enables attaching uploaded files to file_carrier in single post request.
+
+<li>
+Navneet is busy porting files_controller into structure of V2 conductors.
+
+<ul>
+<li>
+create_conductor is done.
+
+</ul>
+<li>
+Merged <a href="https://bitbucket.org/Ekk5tein/hta_be/pull-requests/283">PR that</a> creates household with address on creation of care_receiver.
+
+<ul>
+<li>
+Need to write Migration for existing households.
+
+<li>
+Deepak has made a PR : 295
+
+</ul>
+<li>
+Merged <a href="https://bitbucket.org/Ekk5tein/hta_be/pull-requests/296">Deepak's PR to development</a> that removes <code>discount_pfs</code> from codebase.
+
+<li>
+Merged <a href="https://bitbucket.org/Ekk5tein/hta_be/pull-requests/224">Deepak's PR</a> that adds following missing v1 use_cases to v2 :
+
+<ul>
+<li>
+Provider::CareGiverInstance::Search
+
+<li>
+System::ProtoUsers::Me
+
+<li>
+System::CareReceiver::Pages
+
+</ul>
+<li>
+<code>PruneUnusedDbKeys.run</code> is available, and can be utilized when necessary.
+
+</ol>
+
+<hr />
+
+<div id="Current Updates-To do (stale)"><h3 id="To do (stale)" class="header"><a href="#Current Updates-To do (stale)">To do (stale)</a></h3></div>
+<ol>
+<li>
+Update <code>use_cases.</code>
+
+<li>
+Instruct removal of suggestion in frontend.
+
+<li>
+Implement the Rating feature
+
+<li>
+Replace Julius in hta.rb as ceo.
+
+<li>
+Brainstorm how to develop correction segments feature.
+
+<li>
+Brainstorm process for the development of the further usecases. Discuss things beyond Lead. (Partly done.)
+
+<li>
+dashboard_column_view_tasks
+
+<ul>
+<li>
+Review context_information for dashboard_column_views
+
+<li>
+parralelize the dashboard tiles
+
+</ul>
+<li>
+FrontEnd works
+
+<ul>
+<li>
+cgi_suggest_mail_form
+
+<li>
+posting_create_form
+
+</ul>
+<li>
+Delegate use_cases documentation to Ingus.
+
+<li>
+Have to discuss refactor of sb_pdf_dc with Navneet.
+
+</ol>
+
+<hr />
+
+<div id="Current Updates-To do (stale)-Hyperlinks"><h5 id="Hyperlinks" class="header"><a href="#Current Updates-To do (stale)-Hyperlinks">Hyperlinks</a></h5></div>
+
+<p>
+<a href="Refactor CR_Create.html">Refactor CR_Create</a>
+<a href="Updating suggestion reference in use cases..html">Updating suggestion reference in use cases.</a>
+<a href="Moving backend to Gitlab..html">Moving backend to Gitlab.</a>
+<a href="Archived Updates..html">Archived Updates.</a>
+</p>
+
+</body>
+</html>
